@@ -36,7 +36,7 @@ class EaLoginPage:
         self.page.wait_for_load_state("networkidle")
 
     def logout(self):
-        self.page.click("text=Logout")
+        self.page.locator("form[action*='Logout'] button").click()
         self.page.wait_for_load_state("networkidle")
 
     def is_logged_in(self) -> bool:

@@ -61,8 +61,8 @@ def test_valid_login_shows_nav_menu(login_page, page):
     assert page.locator("a.nav-link[href='/Employee']").is_visible(), \
         "Employees nav link not found"
     # Logout link — try common variations
-    logout = page.locator("a[href*='Logout'], a[href*='LogOff']").first
-    assert logout.is_visible(), "Logout link not found in nav"
+    logout = page.locator("form[action*='Logout'] button, form[action*='LogOff'] button").first
+    assert logout.is_visible(), "Logout button not found in nav"
 
 
 def test_valid_login_shows_view_employees_button(login_page, page):
